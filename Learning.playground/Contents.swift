@@ -21,5 +21,35 @@ var sortedArray = insertionSort(originalArray, accending: false)
 //print("sortedArray count: \(originalArray.count)")
 
 
-// MARK: -
+// MARK: - SwiftUI Environment stuff
 
+class ColorResolver {
+    @Environment(\.backgroundColor) var backgroundColor: UIColor
+}
+
+
+private struct BackgroundEnvironmentKey: EnvironmentKey {
+    static let defaultValue: UIColor = .blue
+}
+
+extension EnvironmentValues {
+    var backgroundColor: UIColor {
+        get { self[BackgroundEnvironmentKey.self] }
+        set { self[BackgroundEnvironmentKey.self] = newValue }
+    }
+}
+
+struct MyAwesomeTextField: View {
+    @Binding var text: String
+    
+    var body: some View {
+        let binding: Binding<String> = Binding(
+            get: {
+                text.capitalized
+            },
+            set: { val in
+                text = val
+            })
+        TextField("Some awesome title", text: binding)
+    }
+}
