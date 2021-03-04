@@ -60,12 +60,21 @@ struct MyAwesomeTextField: View {
 struct Recurrence {
     enum Frequency {
         case hourly
-        case daily
-        case weekly(DailyRecurrence)
+        case daily(DailyRecurrence)
+        case weekly(WeeklyRecurrence)
         case monthly(MontlyRecurrence)
         case yearly(YearlyRecurrence)
         
         struct DailyRecurrence {
+            enum HoursOfTheDay {
+                case one, two, three, four, five, six, seven, eight, nine, ten
+                case eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty
+                case twentyone, twentytwo, twentythree
+            }
+            var hoursOfTheDay: Set<HoursOfTheDay>
+        }
+        
+        struct WeeklyRecurrence {
             enum DayOfTheWeek {
                 case sunday, monday, tuesday, wednesday, thursday, friday, saturday
             }
