@@ -53,3 +53,76 @@ struct MyAwesomeTextField: View {
         TextField("Some awesome title", text: binding)
     }
 }
+
+
+// MARK: - Recurrence Stuff
+
+struct Recurrence {
+    enum Frequency {
+        case hourly
+        case daily
+        case weekly(DailyRecurrence)
+        case monthly(MontlyRecurrence)
+        case yearly(YearlyRecurrence)
+        
+        struct DailyRecurrence {
+            enum DayOfTheWeek {
+                case sunday, monday, tuesday, wednesday, thursday, friday, saturday
+            }
+            var daysOfTheWeek: Set<DayOfTheWeek>
+        }
+        
+        struct MontlyRecurrence {
+            enum DayOfTheMonth {
+                case dayOfTheMonth(Set<IntegerDayOfTheMonth>)
+                case computedDayOfTheMonth(ComputedDayOfTheMonth)
+                
+                struct ComputedDayOfTheMonth {
+                    enum ComputedDaysOfTheMonth {
+                        case day
+                        case weekday
+                        case weekendDay
+                    }
+                    enum WeekOfTheMonth {
+                        case first, second, third, fourth, fifth, last
+                    }
+                    var weekOfTheMonth: WeekOfTheMonth
+                    var dayOfTheMonth: ComputedDaysOfTheMonth
+                }
+                
+                struct IntegerDayOfTheMonth: Hashable {
+                    private var day: Int
+                    init() { self.day = 1 }
+                    
+                    var dayOfTheMonth: Int {
+                        get { return day }
+                        set {
+                            if newValue > 0 && newValue < 31 {
+                                day = newValue
+                            }
+                        }
+                    }
+                }
+            }
+            var recurrence: DayOfTheMonth
+        }
+        
+        struct YearlyRecurrence {
+            enum MonthOfTheYear {
+                case january, february, march, april, may, june, july, august, september, october, november, december
+            }
+            var monthsOfTheYear: Set<MonthOfTheYear>
+            var dayOfTheMonth: MontlyRecurrence.DayOfTheMonth
+        }
+    }
+    
+    enum RecurrenceEnd {
+        case date(Date)
+        case occurrenceCount(Int)
+        case never
+    }
+    
+    var frequency: Frequency
+    var recurrenceEnd: RecurrenceEnd
+    var interval: Int
+}
