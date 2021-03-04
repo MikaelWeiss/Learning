@@ -66,7 +66,7 @@ struct Recurrence {
         case yearly(YearlyRecurrence)
         
         struct DailyRecurrence {
-            enum HoursOfTheDay {
+            enum HoursOfTheDay: Int {
                 case one, two, three, four, five, six, seven, eight, nine, ten
                 case eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty
                 case twentyone, twentytwo, twentythree
@@ -101,14 +101,12 @@ struct Recurrence {
                 
                 struct IntegerDayOfTheMonth: Hashable {
                     private var day: Int
-                    init() { self.day = 1 }
+                    init() { day = 1 }
                     
                     var dayOfTheMonth: Int {
                         get { return day }
                         set {
-                            if newValue > 0 && newValue < 31 {
-                                day = newValue
-                            }
+                            day = newValue.residesInRange(min: 0, max: 31, default: day)
                         }
                     }
                 }
@@ -131,7 +129,36 @@ struct Recurrence {
         case never
     }
     
+    struct Interval {
+        private var interval: Int
+        init(interval: Int = 1) {
+            self.interval = interval.residesInRange(min: 0, max: 999, default: interval)
+        }
+        
+        var value: Int {
+            get { interval }
+            set {
+                self.interval = newValue.residesInRange(min: 0, max: 999, default: 1)
+            }
+        }
+    }
+    
     var frequency: Frequency
     var recurrenceEnd: RecurrenceEnd
-    var interval: Int
+    var interval: Interval
+}
+
+let firstRecurrence = Recurrence(
+    frequency: .monthly(.init(recurrence: .computedDayOfTheMonth(.init(weekOfTheMonth: .second, dayOfTheMonth: .weekday)))),
+    recurrenceEnd: .occurrenceCount(25),
+    interval: .init())
+
+extension Int {
+    func residesInRange(min: Int, max: Int, default: Int) -> Int {
+        if self > min && self < max {
+            return self
+        } else {
+            return `default`
+        }
+    }
 }
