@@ -11,6 +11,7 @@
 		A57C814B25F1D73D00972618 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814825F1D73D00972618 /* InsertionSort.swift */; };
 		A57C814C25F1D73D00972618 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814925F1D73D00972618 /* Queue.swift */; };
 		A57C815025F1D75300972618 /* Visuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814F25F1D75300972618 /* Visuals.swift */; };
+		A57C815D25F1D8A500972618 /* Recurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C815C25F1D8A500972618 /* Recurrence.swift */; };
 		A5AE940525F1CEC4006FA79C /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE940425F1CEC4006FA79C /* LearningApp.swift */; };
 		A5AE940725F1CEC4006FA79C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE940625F1CEC4006FA79C /* ContentView.swift */; };
 		A5AE940925F1CEC5006FA79C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AE940825F1CEC5006FA79C /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		A57C814925F1D73D00972618 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		A57C814F25F1D75300972618 /* Visuals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visuals.swift; sourceTree = "<group>"; };
 		A57C815625F1D7E000972618 /* Learning.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Learning.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A57C815C25F1D8A500972618 /* Recurrence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recurrence.swift; sourceTree = "<group>"; };
 		A5AE940125F1CEC4006FA79C /* Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AE940425F1CEC4006FA79C /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		A5AE940625F1CEC4006FA79C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,14 +70,23 @@
 			path = Playgrounds;
 			sourceTree = "<group>";
 		};
+		A57C815B25F1D88000972618 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A57C815C25F1D8A500972618 /* Recurrence.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		A5AE93F825F1CEC4006FA79C = {
 			isa = PBXGroup;
 			children = (
-				A57C815825F1D7FD00972618 /* Playgrounds */,
-				A57C814E25F1D74700972618 /* SwiftUI */,
 				A57C814625F1D71F00972618 /* Algorithms&DataStructures */,
 				A5AE940325F1CEC4006FA79C /* Learning */,
+				A57C815B25F1D88000972618 /* Other */,
+				A57C815825F1D7FD00972618 /* Playgrounds */,
 				A5AE940225F1CEC4006FA79C /* Products */,
+				A57C814E25F1D74700972618 /* SwiftUI */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +190,7 @@
 				A57C814C25F1D73D00972618 /* Queue.swift in Sources */,
 				A5AE940725F1CEC4006FA79C /* ContentView.swift in Sources */,
 				A57C814B25F1D73D00972618 /* InsertionSort.swift in Sources */,
+				A57C815D25F1D8A500972618 /* Recurrence.swift in Sources */,
 				A57C814A25F1D73D00972618 /* Stack.swift in Sources */,
 				A5AE940525F1CEC4006FA79C /* LearningApp.swift in Sources */,
 				A57C815025F1D75300972618 /* Visuals.swift in Sources */,
