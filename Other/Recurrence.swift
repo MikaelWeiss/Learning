@@ -5,25 +5,17 @@ import Foundation
 struct Recurrence {
     enum Frequency {
         case hourly
-        case daily(DailyRecurrence)
-        case weekly(WeeklyRecurrence)
+        case daily(Set<HoursOfTheDay>)
+        case weekly(Set<DayOfTheWeek>)
         case monthly(MontlyRecurrence)
         case yearly(YearlyRecurrence)
         
-        struct DailyRecurrence {
-            enum HoursOfTheDay: Int {
-                case one, two, three, four, five, six, seven, eight, nine, ten
-                case eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty
-                case twentyone, twentytwo, twentythree
-            }
-            var hoursOfTheDay: Set<HoursOfTheDay>
+        enum HoursOfTheDay: Int {
+            case one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty, twentyone, twentytwo, twentythree
         }
         
-        struct WeeklyRecurrence {
-            enum DayOfTheWeek {
-                case sunday, monday, tuesday, wednesday, thursday, friday, saturday
-            }
-            var daysOfTheWeek: Set<DayOfTheWeek>
+        enum DayOfTheWeek {
+            case sunday, monday, tuesday, wednesday, thursday, friday, saturday
         }
         
         struct MontlyRecurrence {
