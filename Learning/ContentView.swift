@@ -9,69 +9,84 @@ import SwiftUI
 
 struct ContentView: View {
     
-    private let originalWidth: CGFloat = 332
-    private let originalHeight: CGFloat = 212
-    
     var body: some View {
-        VStack(spacing: 0) {
-            Circle()
-            Color.blue
-                .widthScaled(originalWidth: originalWidth, originalHeight: originalHeight)
-                .border(Color.red, width: 5)
-            Circle()
+        ScrollView {
+            VStack(spacing: 16) {
+                ForEach(0..<5) { _ in
+                    RoundedRectangle(cornerRadius: 25, style: .continuous)
+                        .fill(Color.blue)
+                        .frame(width: 300, height: 56)
+                        .delaysTouches()
+                }
+            }
         }
     }
 }
 
-extension View {
-    func widthScaled(originalWidth: CGFloat, originalHeight: CGFloat) -> some View {
-        modifier(WidthScaled(originalWidth: originalWidth, originalHeight: originalHeight))
-    }
-}
-
-struct WidthScaled: ViewModifier {
-    let originalWidth: CGFloat
-    let originalHeight: CGFloat
-    @State var frame: CGSize
-    private var scaleFactor: CGFloat {
-        frame.width / originalWidth
-    }
-    
-    init(originalWidth: CGFloat, originalHeight: CGFloat) {
-        self.originalWidth = originalWidth
-        self.originalHeight = originalHeight
-        self.frame = CGSize(width: originalWidth, height: originalHeight)
-    }
-    
-    func body(content: Content) -> some View {
-        GeometryReader { geo in
-            makeView(geo, content: content)
-        }
-            .frame(height: originalHeight * scaleFactor)
-    }
-    
-    private func makeView(_ geo: GeometryProxy, content: Content) -> some View {
-        print(geo.size.width, geo.size.height)
-
-        DispatchQueue.main.async { self.frame = geo.size }
-        
-        return content
-            .frame(width: originalWidth, height: originalHeight)
-            .scaleEffect(geo.size.width / originalWidth, anchor: .leading)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+struct StandardScrollableButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .opacity(configuration.isPressed ? 0.7 : 1.0)
+            .animation(.default.delay(0.5))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .frame(width: 450, height: 400)
-            .previewLayout(.sizeThatFits)
-        ContentView()
-            .frame(width: 364, height: 400)
-            .previewLayout(.sizeThatFits)
-        ContentView()
-            .frame(width: 200, height: 400)
-            .previewLayout(.sizeThatFits)
+    }
+}
+
+
+extension View {
+    /// Fixes issue where drag gesture would overide scroll view
+    /// See [here](https://www.hackingwithswift.com/forums/swiftui/a-guide-to-delaying-gestures-in-scrollview/6005)
+    func delaysTouches(for duration: TimeInterval = 1, onTap action: @escaping () -> Void = {}) -> some View {
+        modifier(DelaysTouches(duration: duration, action: action))
+    }
+}
+
+private struct DelaysTouches: ViewModifier {
+    @State private var disabled = false
+    
+    var duration: TimeInterval
+    var action: () -> Void
+    
+    func body(content: Content) -> some View {
+        Button(action: action) { content }
+            .buttonStyle(DelaysTouchesButtonStyle(disabled: $disabled, duration: duration))
+            .disabled(disabled)
+    }
+}
+
+private struct DelaysTouchesButtonStyle: ButtonStyle {
+    @State private var touchDownDate: Date?
+    @Binding var disabled: Bool
+    var duration: TimeInterval
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .onChange(of: configuration.isPressed, perform: handleIsPressed)
+            .opacity(configuration.isPressed ? 0.1 : 1.0)
+    }
+    
+    private func handleIsPressed(isPressed: Bool) {
+        if isPressed {
+            let date = Date()
+            touchDownDate = date
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + max(duration, 0)) {
+                if date == touchDownDate {
+                    disabled = true
+                    
+                    DispatchQueue.main.async {
+                        disabled = false
+                    }
+                }
+            }
+        } else {
+            touchDownDate = nil
+            disabled = false
+        }
     }
 }
