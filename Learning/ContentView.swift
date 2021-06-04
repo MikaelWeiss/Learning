@@ -6,11 +6,23 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
-    
     var body: some View {
-        Text("Sup")
+        VStack {
+            Button("Request Permission") {
+                BadgeManager.requestPermission()
+            }
+            
+            Button("Schedule Notification") {
+                BadgeManager.scheduleBadge()
+            }
+            
+            Button("Remove Notifications") {
+                BadgeManager.removeAllNotifications()
+            }
+        }
     }
 }
 

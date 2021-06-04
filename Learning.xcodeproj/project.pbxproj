@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A54CC0CE266A9F0F0071F3BC /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */; };
 		A57C814A25F1D73D00972618 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814725F1D73D00972618 /* Stack.swift */; };
 		A57C814B25F1D73D00972618 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814825F1D73D00972618 /* InsertionSort.swift */; };
 		A57C814C25F1D73D00972618 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814925F1D73D00972618 /* Queue.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		A57C814725F1D73D00972618 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		A57C814825F1D73D00972618 /* InsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
 		A57C814925F1D73D00972618 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				A5AE940425F1CEC4006FA79C /* LearningApp.swift */,
 				A5AE940625F1CEC4006FA79C /* ContentView.swift */,
+				A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */,
 				A5AE940825F1CEC5006FA79C /* Assets.xcassets */,
 				A5AE940D25F1CEC5006FA79C /* Info.plist */,
 				A5AE940A25F1CEC5006FA79C /* Preview Content */,
@@ -190,6 +193,7 @@
 				A57C814C25F1D73D00972618 /* Queue.swift in Sources */,
 				A5AE940725F1CEC4006FA79C /* ContentView.swift in Sources */,
 				A57C814B25F1D73D00972618 /* InsertionSort.swift in Sources */,
+				A54CC0CE266A9F0F0071F3BC /* BadgeManager.swift in Sources */,
 				A57C815D25F1D8A500972618 /* Recurrence.swift in Sources */,
 				A57C814A25F1D73D00972618 /* Stack.swift in Sources */,
 				A5AE940525F1CEC4006FA79C /* LearningApp.swift in Sources */,
