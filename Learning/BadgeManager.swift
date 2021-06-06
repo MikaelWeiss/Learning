@@ -16,6 +16,7 @@ enum BadgeManager {
     }
     
     static func scheduleBadge() {
+        removeAllNotifications()
         let content = UNMutableNotificationContent()
         content.badge = 1
         
@@ -26,7 +27,6 @@ enum BadgeManager {
         
         let request = UNNotificationRequest(identifier: "Badge", content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().add(request)
         UNUserNotificationCenter.current().add(request)
     }
     
