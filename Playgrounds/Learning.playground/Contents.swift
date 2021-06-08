@@ -83,10 +83,125 @@ extension Date {
 }
 
 let oneWeekAgo = Date().adding(days: -6)
-let today = Date()
+//let today = Date()
 
-let days = Date.intervalOf(component: .day, from: oneWeekAgo, to: today)
-print(days)
+//let days = Date.intervalOf(component: .day, from: oneWeekAgo, to: today)
+//print(days)
 
-let val = (days % 2)
-print(val)
+//let val = (days % 2)
+//print(val)
+
+let startDate = Date()
+let rangeOfStart = Calendar.current.dateInterval(of: .day, for: startDate)!
+
+//print(rangeOfStart.duration)
+
+let todayy = Calendar.current.date(bySetting: .day, value: 2, of: Date())!
+//print(Calendar.current.component(.day, from: todayy))
+
+enum DayOfTheWeek: Int {
+    case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
+}
+
+//print(DayOfTheWeek.monday.rawValue)
+
+let cal = Calendar.current
+let components = DateComponents(calendar: cal, year: 2020, month: 5, weekday: 1, weekOfMonth: 2)
+let today = cal.date(from: components)!
+//print(today)
+
+extension DateFormatter {
+    class var standard: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        return dateFormatter
+    }
+}
+
+extension Date {
+    init?(dateString: String) {
+        
+        let dateFormatter = DateFormatter.standard
+        var date: Date?
+        let formats = ["MM/dd/yyyy", "M/dd/yyyy", "MM/d/yyyy", "M/d/yyyy", "dd MMM yyyy", "MM/dd/yyyy HH:mm:ss"]
+        for format in formats {
+            dateFormatter.dateFormat = format
+            if let parsedDate = dateFormatter.date(from: dateString) {
+                date = parsedDate
+                break
+            }
+        }
+        
+        if let date = date {
+            self = date
+        } else {
+            return nil
+        }
+    }
+}
+
+let morningDate = Date(dateString: "12/12/12 07:00:00")!
+//print(Calendar.current.component(.hour, from: morningDate))
+
+let noonDate = Date(dateString: "12/12/12 13:00:00")!
+//print(Calendar.current.component(.hour, from: noonDate))
+
+let nightDate = Date(dateString: "12/12/12 20:00:00")!
+//print(Calendar.current.component(.hour, from: nightDate))
+
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
+let newDate = dateFormatter.date(from: "12/12/2012 7:00:00")!
+//print(Calendar.current.component(.hour, from: newDate))
+//print(dateFormatter.string(from: newDate))
+
+//print(.nan + Decimal(8))
+
+let size: CGFloat = 200
+let minSize: CGFloat? = 16
+let maxSize: CGFloat? = 16
+let scaledSize = UIFontMetrics.default.scaledValue(for: size)
+
+var finalSize: CGFloat {
+    if let maxSize = maxSize, scaledSize > maxSize {
+        return maxSize
+    }
+    if let minSize = minSize, scaledSize < minSize {
+        return minSize
+    }
+    return scaledSize
+}
+//print(finalSize)
+
+let givenID = UUID()
+//print("StringWithID: \(givenID)")
+//print("StringWithID: \(givenID.uuidString)")
+
+
+struct Test {
+    var val: String
+}
+
+var a = Test(val: "asdf") {
+    didSet {
+        print("DidSet ran Struct")
+    }
+}
+a.val = "Some new value"
+
+class Test2 {
+    var val: String
+    
+    init(val: String) {
+        self.val = val
+    }
+}
+
+var b = Test2(val: "asdf") {
+    didSet {
+        print("DidSet ran Class")
+    }
+}
+b.val = "Some new value"

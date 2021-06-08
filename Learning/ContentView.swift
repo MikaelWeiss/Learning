@@ -2,27 +2,15 @@
 //  ContentView.swift
 //  Learning
 //
-//  Created by Mikael Weiss on 3/4/21.
+//  Created by Mikael Weiss on 6/8/21.
 //
 
 import SwiftUI
-import UserNotifications
 
 struct ContentView: View {
+    let val = Decimal(4)
     var body: some View {
-        VStack {
-            Button("Request Permission") {
-                BadgeManager.requestPermission()
-            }
-            
-            Button("Schedule Notification") {
-                BadgeManager.scheduleBadge()
-            }
-            
-            Button("Remove Notifications") {
-                BadgeManager.removeAllNotifications()
-            }
-        }
+        Text("**Name:** \(val.formatted())")
     }
 }
 
