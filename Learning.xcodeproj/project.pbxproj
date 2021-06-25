@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A54CC0CE266A9F0F0071F3BC /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */; };
-		A555EA32266FD35F00236022 /* AsyncStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A555EA31266FD35F00236022 /* AsyncStuff.swift */; };
 		A555EA35266FE78000236022 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A555EA34266FE78000236022 /* ContentView.swift */; };
 		A57C814A25F1D73D00972618 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814725F1D73D00972618 /* Stack.swift */; };
 		A57C814B25F1D73D00972618 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814825F1D73D00972618 /* InsertionSort.swift */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
-		A555EA31266FD35F00236022 /* AsyncStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncStuff.swift; sourceTree = "<group>"; };
 		A555EA34266FE78000236022 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A57C814725F1D73D00972618 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		A57C814825F1D73D00972618 /* InsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				A5AE940D25F1CEC5006FA79C /* Info.plist */,
-				A555EA31266FD35F00236022 /* AsyncStuff.swift */,
 				A555EA34266FE78000236022 /* ContentView.swift */,
 				A5AE940425F1CEC4006FA79C /* LearningApp.swift */,
 				A5AE940825F1CEC5006FA79C /* Assets.xcassets */,
@@ -230,7 +227,6 @@
 				A5A74F42263D8BF9002D75EE /* MemoryGameModel.swift in Sources */,
 				A5AE940525F1CEC4006FA79C /* LearningApp.swift in Sources */,
 				A57C815025F1D75300972618 /* Visuals.swift in Sources */,
-				A555EA32266FD35F00236022 /* AsyncStuff.swift in Sources */,
 				A555EA35266FE78000236022 /* ContentView.swift in Sources */,
 				A5A74F40263D8B8A002D75EE /* MemoryView.swift in Sources */,
 				A5A74F44263D8CD2002D75EE /* MemoryViewModel.swift in Sources */,
