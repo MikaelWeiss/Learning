@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A54C61C926AF04AC00D083A4 /* TransitionStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C61C826AF04AC00D083A4 /* TransitionStuff.swift */; };
 		A54CC0CE266A9F0F0071F3BC /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */; };
 		A555EA35266FE78000236022 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A555EA34266FE78000236022 /* ContentView.swift */; };
 		A57C814A25F1D73D00972618 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C814725F1D73D00972618 /* Stack.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A54C61C826AF04AC00D083A4 /* TransitionStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStuff.swift; sourceTree = "<group>"; };
 		A54CC0CD266A9F0F0071F3BC /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		A555EA34266FE78000236022 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A57C814725F1D73D00972618 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -54,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A54C61C626AF048F00D083A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A555EA34266FE78000236022 /* ContentView.swift */,
+				A54C61C826AF04AC00D083A4 /* TransitionStuff.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A555EA33266FE75000236022 /* BadgeStuff */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +141,8 @@
 		A5AE940325F1CEC4006FA79C /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				A54C61C626AF048F00D083A4 /* Views */,
 				A5AE940D25F1CEC5006FA79C /* Info.plist */,
-				A555EA34266FE78000236022 /* ContentView.swift */,
 				A5AE940425F1CEC4006FA79C /* LearningApp.swift */,
 				A5AE940825F1CEC5006FA79C /* Assets.xcassets */,
 				A555EA33266FE75000236022 /* BadgeStuff */,
@@ -219,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57C814C25F1D73D00972618 /* Queue.swift in Sources */,
+				A54C61C926AF04AC00D083A4 /* TransitionStuff.swift in Sources */,
 				A5AE940725F1CEC4006FA79C /* BadgeView.swift in Sources */,
 				A57C814B25F1D73D00972618 /* InsertionSort.swift in Sources */,
 				A54CC0CE266A9F0F0071F3BC /* BadgeManager.swift in Sources */,
